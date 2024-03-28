@@ -4,10 +4,10 @@ import { Flex, Space } from "antd";
 import React, { useEffect, useState } from "react";
 import NewsItem, { News } from "../NewsItem";
 import Pagination from "antd/lib/pagination";
-import { URL } from "@/constant";
 import Spin from "antd/lib/spin";
 import { LoadingOutlined } from "@ant-design/icons";
 import LoadingSpinner from "../shared/LoadingSpinner";
+import Button from "antd/lib/button";
 
 interface ApiResponse<T> {
   status: string;
@@ -19,7 +19,7 @@ type Query = Record<string, string>;
 
 async function getNews(query: Query): Promise<ApiResponse<News[]> | undefined> {
   try {
-    const res = await fetch(URL.concat(`${new URLSearchParams(query)}`));
+    const res = await fetch(`/api/news?${new URLSearchParams(query)}`);
     const json = await res.json();
     return json;
   } catch (error) {
