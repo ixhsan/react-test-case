@@ -6,6 +6,7 @@ const contentStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
+  alignItems: "center",
   gap: 20,
   minHeight: 120,
   // lineHeight: "120px",
